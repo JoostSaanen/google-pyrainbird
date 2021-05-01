@@ -34,6 +34,11 @@ def stop():
     controller.stopIrrigation()
     return "Stopping irrigation"
 
+@app.route('/sprinkler/zone/<zone>/minutes/<minutes>')
+def startZone(zone, minutes):
+    controller.startIrrigation(int(zone), int(minutes))
+    return "Start zone " + zone + "for " + minutes + " minutes"
+
 
 if __name__ == '__main__':
         app.run(debug=True,host='0.0.0.0')
